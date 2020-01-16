@@ -40,4 +40,14 @@ module.exports = {
             message: 'Success to insert a user ',
         });
     },
+
+    async index(req, res) {
+        const users = await user.findAll();
+
+        if (!users || users.length <= 0) {
+            return res.status(404).json({ Error: 'Any users registred ' });
+        }
+
+        return res.json(users);
+    },
 };
