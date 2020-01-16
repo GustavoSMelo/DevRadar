@@ -5,5 +5,6 @@ const SearchController = require('../app/controllers/SearchController');
 
 routes.post('/user', UserController.store);
 routes.get('/user', SearchController.index);
+routes.get('/users', UserController.index);
 
 module.exports = routes;
