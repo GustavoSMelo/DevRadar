@@ -15,6 +15,7 @@ import {
     InputForm,
     Btn,
     Form,
+    Click,
 } from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import api from '../../services/api/api';
@@ -117,6 +118,9 @@ class Main extends React.Component {
                                         <TextTechs>
                                             {this.state.devs[index].techs}
                                         </TextTechs>
+                                        <Click>
+                                            Click to see the github of dev
+                                        </Click>
                                     </Container>
                                 </Callout>
                             </Marker>
@@ -126,7 +130,7 @@ class Main extends React.Component {
 
                 <Form>
                     <InputForm
-                        placeholder="Insira as tecnologias"
+                        placeholder="Insert the tecnologies here..."
                         placeholderTextColor={'#909090'}
                         autoCapitalize="words"
                         autoCorrect={false}
