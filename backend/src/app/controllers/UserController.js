@@ -35,6 +35,8 @@ module.exports = {
                 .json({ Error: 'Some credentials is missing ' });
         }
 
+        console.log(sendSocketMessageTo);
+
         return res.json({
             user: newuser,
             message: 'Success to insert a user ',
