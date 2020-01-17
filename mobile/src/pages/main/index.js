@@ -19,6 +19,7 @@ import {
 } from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import api from '../../services/api/api';
+import { connect, disconnect } from '../../services/socket';
 
 const styles = StyleSheet.create({
     Ionicos: {
@@ -38,6 +39,11 @@ class Main extends React.Component {
         };
     }
 
+    setupWebSocket = () => {
+        //const { latitude, longitude } = this.state.region;
+        connect(this.state.techs);
+    };
+
     async componentDidMount() {
         const { granted } = await requestPermissionsAsync();
 
@@ -53,7 +59,7 @@ class Main extends React.Component {
                     latitude,
                     longitude,
                     latitudeDelta: 0.04,
-                    LongitudeDelta: 0.04,
+                    longitudeDelta: 0.04,
                 },
             });
         }
@@ -71,7 +77,7 @@ class Main extends React.Component {
             devs: this.state.devs.concat(info.data),
         });
 
-        console.log(this.state.devs);
+        this.setupWebSocket();
     };
 
     handlerInputChange = async e =>
